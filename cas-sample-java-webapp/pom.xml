@@ -40,7 +40,15 @@
                         </systemProperty>
                         <systemProperty>
                             <name>javax.net.ssl.trustStore</name>
-                            <value>D:/entorno/ide/workspace/sso-cas/dist/etc/cas/thekeystore.jks</value>
+                            <value>${basedir}/../dist/etc/cas/thekeystore.jks</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <name>jetty.ssl.keystore.path</name>
+                            <value>${basedir}/../dist/etc/cas/thekeystore.jks</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <name>jetty.ssl.truststore.path</name>
+                            <value>${basedir}/../dist/etc/cas/thekeystore.jks</value>
                         </systemProperty>
                     </systemProperties>
                     <webApp>
