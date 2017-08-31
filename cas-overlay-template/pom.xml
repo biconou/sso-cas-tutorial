@@ -144,5 +144,54 @@
         </plugins>
       </build>
     </profile>
+
+    <profile>
+      <id>instance1</id>
+      <properties>
+        <cas.config.dir>${basedir}/../dist/etc/cas/config/instance1</cas.config.dir>
+        <keystore.file>${basedir}/../dist/etc/cas/thekeystore.jks</keystore.file>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>1.5.6.RELEASE</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <fork>false</fork>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.5.0</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>java</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <mainClass>org.springframework.boot.loader.WarLauncher</mainClass>
+              <executable>maven</executable>
+              <!-- optional -->
+              <workingDirectory>/tmp</workingDirectory>
+              <arguments>
+                <argument>-X</argument>
+                <argument>myproject:dist</argument>
+              </arguments>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
   </profiles>
 </project>

@@ -1,5 +1,5 @@
 
-del /f /q logs\*.*
+del /f /q logs\instance2\*.*
 
 set JAVA_HOME=D:\jdk1.8.0_65
 

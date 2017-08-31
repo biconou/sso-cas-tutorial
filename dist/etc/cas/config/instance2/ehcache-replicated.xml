@@ -11,5 +11,5 @@
             properties="peerDiscovery=manual" />
         <cacheManagerPeerListenerFactory
             class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory"
-            properties="port=41002" />
+            properties="port=41003" />
 </ehcache>

@@ -85,7 +85,7 @@
         <AsyncLogger name="org.thymeleaf" level="warn" />
         <AsyncLogger name="org.pac4j" level="warn" />
         <AsyncLogger name="org.opensaml" level="warn"/>
-        <AsyncLogger name="net.sf.ehcache" level="warn" />
+        <AsyncLogger name="net.sf.ehcache" level="trace"/>
         <AsyncLogger name="com.couchbase" level="warn" includeLocation="true"/>
         <AsyncLogger name="com.ryantenney.metrics" level="warn" />
         <AsyncLogger name="net.jradius" level="warn" />
@@ -93,6 +93,7 @@
         <AsyncLogger name="org.ldaptive" level="warn" />
         <AsyncLogger name="com.hazelcast" level="warn" />
         <AsyncLogger name="org.jasig.spring" level="warn" />
+        <AsyncLogger name="org.apereo.cas.ticket.registry" level="debug"/>
 
         <!-- Log perf stats only to perfStats.log -->
         <AsyncLogger name="perfStatsLogger" level="info" additivity="false" includeLocation="true">
