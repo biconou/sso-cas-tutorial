@@ -10,6 +10,7 @@
     <properties>
         <sample.application.ssl.port>9443</sample.application.ssl.port>
         <sample.application.context>sample1</sample.application.context>
+        <sample.application.truststore>D:/entorno/ide/workspace/sso-cas/dist/etc/cas/thekeystore-cas-instance1.jks</sample.application.truststore>
     </properties>
     <build>
         <finalName>cas-sample-java-webapp</finalName>
@@ -40,15 +41,7 @@
                         </systemProperty>
                         <systemProperty>
                             <name>javax.net.ssl.trustStore</name>
-                            <value>${basedir}/../dist/etc/cas/thekeystore.jks</value>
-                        </systemProperty>
-                        <systemProperty>
-                            <name>jetty.ssl.keystore.path</name>
-                            <value>${basedir}/../dist/etc/cas/thekeystore.jks</value>
-                        </systemProperty>
-                        <systemProperty>
-                            <name>jetty.ssl.truststore.path</name>
-                            <value>${basedir}/../dist/etc/cas/thekeystore.jks</value>
+                            <value>${sample.application.truststore}</value>
                         </systemProperty>
                     </systemProperties>
                     <webApp>
@@ -66,6 +59,7 @@
             <properties>
                 <sample.application.ssl.port>9443</sample.application.ssl.port>
                 <sample.application.context>sample1</sample.application.context>
+                <sample.application.truststore>D:/entorno/ide/workspace/sso-cas/dist/etc/cas/thekeystore-cas-instance1.jks</sample.application.truststore>
             </properties>
         </profile>
         <profile>
@@ -73,6 +67,7 @@
             <properties>
                 <sample.application.ssl.port>9453</sample.application.ssl.port>
                 <sample.application.context>sample2</sample.application.context>
+                <sample.application.truststore>D:/entorno/ide/workspace/sso-cas/dist/etc/cas/thekeystore-cas-instance2.jks</sample.application.truststore>
             </properties>
         </profile>
     </profiles>
