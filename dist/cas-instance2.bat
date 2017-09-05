@@ -1,11 +1,10 @@
-
-del /f /q %DIST_DIR%\logs\instance2\*.*
-
 set JAVA_HOME=D:\jdk1.8.0_65
-
 set DIST_DIR=D:\entorno\ide\workspace\sso-cas\dist
 set CAS_CONFIG_DIR=%DIST_DIR%\etc\cas\config\instance2
 set KEYSTORE_FILE=%DIST_DIR%\etc\cas\thekeystore-cas-instance2.jks
+
+del /f /q %DIST_DIR%\logs\instance2\*.*
+
 
 echo on
 
