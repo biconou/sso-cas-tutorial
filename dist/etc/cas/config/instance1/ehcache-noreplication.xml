@@ -1,0 +1,16 @@
+<ehcache name="ehCacheTicketRegistryCache"
+         updateCheck="false"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+
+  <diskStore path="java.io.tmpdir/cas"/>
+
+  <!-- Manual Peer Discovery -->
+  <cacheManagerPeerProviderFactory
+    class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"
+    properties="peerDiscovery=manual,rmiUrls="/>
+  <cacheManagerPeerListenerFactory
+    class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory"
+    properties="port=41001"/>
+
+</ehcache>

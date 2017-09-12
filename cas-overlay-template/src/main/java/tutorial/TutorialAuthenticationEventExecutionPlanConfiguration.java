@@ -4,6 +4,8 @@ import org.apereo.cas.authentication.AuthenticationEventExecutionPlan;
 import org.apereo.cas.authentication.AuthenticationEventExecutionPlanConfigurer;
 import org.apereo.cas.authentication.AuthenticationHandler;
 import org.apereo.cas.configuration.CasConfigurationProperties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -13,11 +15,15 @@ import org.springframework.context.annotation.Configuration;
 @EnableConfigurationProperties(CasConfigurationProperties.class)
 public class TutorialAuthenticationEventExecutionPlanConfiguration implements AuthenticationEventExecutionPlanConfigurer {
 
+  Logger log = LoggerFactory.getLogger(TutorialAuthenticationEventExecutionPlanConfiguration.class);
+
   @Autowired
   private CasConfigurationProperties casProperties;
 
   @Bean
   public AuthenticationHandler tutorialAuthenticationHandler() {
+
+    log.info("Create a new AuthenticationHandler of type {}", TutorialAuthenticationHandler.class.getName());
     final TutorialAuthenticationHandler handler = new TutorialAuthenticationHandler("tutorialAuthenticationHandler", null, null, null);
         /*
             Configure the handler by invoking various setter methods.

@@ -32,11 +32,21 @@ public class TutorialAuthenticationHandler extends AbstractUsernamePasswordAuthe
     String username = credential.getUsername().toUpperCase();
     log.info("Test if credentials equals to CASTOI" + username);
 
-    if ("CASTOI".equals(credential.getUsername().toUpperCase())) {
+    /* if ("CASTOI".equals(credential.getUsername().toUpperCase())) {
       return createHandlerResult(credential,
         this.principalFactory.createPrincipal(username), null);
     }
-    throw new FailedLoginException("Sorry, you are a failure!");
+    else {
+      throw new FailedLoginException("Sorry, you are a failure!");
+    } */
+
+    if ("HLREBILLAR".equals(credential.getUsername().toUpperCase())) {
+      return createHandlerResult(credential,
+        this.principalFactory.createPrincipal(username), null);
+    }
+    else {
+      throw new FailedLoginException("Sorry, you are a failure!");
+    }
   }
 }
  

@@ -39,7 +39,7 @@
 		<filter-class>org.jasig.cas.client.validation.Cas30ProxyReceivingTicketValidationFilter</filter-class>
 		<init-param>
 			<param-name>casServerUrlPrefix</param-name>
-			<param-value>https://cas-instance2:8444/cas</param-value>
+			<param-value>https://cas-instance1:8443/cas</param-value>
 		</init-param>
 		<init-param>
 			<param-name>serverName</param-name>

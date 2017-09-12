@@ -1,8 +1,0 @@
-{
-  "@class" : "org.apereo.cas.services.RegexRegisteredService",
-  "serviceId" : "http://.*/mywebapp.*",
-  "name" : "mywebapp",
-  "id" : 991,
-  "description" : "service pour application de test",
-  "evaluationOrder" : 10000
-}
