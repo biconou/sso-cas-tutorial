@@ -13,5 +13,5 @@ bin/
 *.iml
 *.log
 
-dist/etc/cas/thekeystore*.jks
+dist/thekeystore*.jks
 dist/cas.war
