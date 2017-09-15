@@ -8,26 +8,19 @@
   <packaging>war</packaging>
   <version>1.0</version>
 
+
+  <properties>
+    <cas.version>5.1.3</cas.version>
+    <springboot.version>1.5.3.RELEASE</springboot.version>
+    <!-- app.server could be -jetty, -undertow, -tomcat, or blank if you plan to provide appserver -->
+    <app.server>-tomcat</app.server>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <build>
     <plugins>
-      <plugin>
-        <groupId>com.rimerosolutions.maven.plugins</groupId>
-        <artifactId>wrapper-maven-plugin</artifactId>
-        <version>0.0.4</version>
-        <configuration>
-          <verifyDownload>true</verifyDownload>
-          <checksumAlgorithm>MD5</checksumAlgorithm>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <version>${springboot.version}</version>
-        <configuration>
-          <mainClass>org.springframework.boot.loader.WarLauncher</mainClass>
-          <addResources>true</addResources>
-        </configuration>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
@@ -54,6 +47,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.3</version>
       </plugin>
+
     </plugins>
     <finalName>cas</finalName>
   </build>
@@ -68,109 +62,52 @@
     </dependency>
     <dependency>
       <groupId>org.apereo.cas</groupId>
-      <artifactId>cas-server-support-ehcache-ticket-registry</artifactId>
-      <version>${cas.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apereo.cas</groupId>
       <artifactId>cas-server-support-json-service-registry</artifactId>
       <version>${cas.version}</version>
     </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.4</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
 
-  <properties>
-    <cas.version>5.1.3</cas.version>
-    <springboot.version>1.5.3.RELEASE</springboot.version>
-    <!-- app.server could be -jetty, -undertow, -tomcat, or blank if you plan to provide appserver -->
-    <app.server>-tomcat</app.server>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
-  <repositories>
-    <repository>
-      <id>sonatype-releases</id>
-      <url>http://oss.sonatype.org/content/repositories/releases/</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-    </repository>
-    <repository>
-      <id>sonatype-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-    </repository>
-    <repository>
-      <id>shibboleth-releases</id>
-      <url>https://build.shibboleth.net/nexus/content/repositories/releases</url>
-    </repository>
-    <repository>
-      <id>spring-milestones</id>
-      <url>https://repo.spring.io/milestone</url>
-    </repository>
-  </repositories>
-
   <profiles>
-    <profile>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-      <id>pgp</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>com.github.s4u.plugins</groupId>
-            <artifactId>pgpverify-maven-plugin</artifactId>
-            <version>1.1.0</version>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>check</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <pgpKeyServer>hkp://pool.sks-keyservers.net</pgpKeyServer>
-              <pgpKeysCachePath>${settings.localRepository}/pgpkeys-cache</pgpKeysCachePath>
-              <scope>test</scope>
-              <verifyPomFiles>true</verifyPomFiles>
-              <failNoSignature>false</failNoSignature>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
 
     <profile>
-      <id>instance1</id>
-      <properties>
-        <cas.config.dir>${basedir}/../dist/etc/cas/config/instance1</cas.config.dir>
-        <keystore.file>${basedir}/../dist/etc/cas/thekeystore.jks</keystore.file>
-      </properties>
+      <id>extranets</id>
       <build>
         <plugins>
           <plugin>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-maven-plugin</artifactId>
-            <version>1.5.3.RELEASE</version>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>3.0.0</version>
             <executions>
               <execution>
+                <id>add-source</id>
+                <phase>generate-sources</phase>
                 <goals>
-                  <goal>run</goal>
+                  <goal>add-source</goal>
                 </goals>
                 <configuration>
-                  <fork>false</fork>
-                  <jvmArguments>-Dcas.standalone.config=${basedir}/../dist/etc/cas/config/instance1</jvmArguments>
-                  <!-- <folders>${build.outputDirectory}/cas/WEB-INF/lib</folders> -->
+                  <sources>
+                    <source>src/extranets/java</source>
+                  </sources>
+                </configuration>
+              </execution>
+              <execution>
+                <id>add-resource</id>
+                <phase>generate-resources</phase>
+                <goals>
+                  <goal>add-resource</goal>
+                </goals>
+                <configuration>
+                  <resources>
+                    <resource>
+                      <directory>src/extranets/resources</directory>
+                    </resource>
+                  </resources>
                 </configuration>
               </execution>
             </executions>
@@ -178,5 +115,54 @@
         </plugins>
       </build>
     </profile>
+
+    <profile>
+      <id>tutorial</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>3.0.0</version>
+            <executions>
+              <execution>
+                <id>add-source</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>add-source</goal>
+                </goals>
+                <configuration>
+                  <sources>
+                    <source>src/tutorial/java</source>
+                  </sources>
+                </configuration>
+              </execution>
+              <execution>
+                <id>add-resource</id>
+                <phase>generate-resources</phase>
+                <goals>
+                  <goal>add-resource</goal>
+                </goals>
+                <configuration>
+                  <resources>
+                    <resource>
+                      <directory>src/tutorial/resources</directory>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <dependencies>
+        <dependency>
+          <groupId>org.apereo.cas</groupId>
+          <artifactId>cas-server-support-ehcache-ticket-registry</artifactId>
+          <version>${cas.version}</version>
+        </dependency>
+      </dependencies>
+    </profile>
+
   </profiles>
 </project>

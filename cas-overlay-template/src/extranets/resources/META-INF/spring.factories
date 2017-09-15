@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.soprasteria.immobilier.extranets.security.cas.ExtranetsAuthenticationEventExecutionPlanConfiguration
