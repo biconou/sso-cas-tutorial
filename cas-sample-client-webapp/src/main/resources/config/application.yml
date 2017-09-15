@@ -1,0 +1,19 @@
+logging :
+  level :
+    org :
+      springframework : INFO
+      thymeleaf : DEBUG
+
+
+server :
+  port : 8081
+  context-path : /sample1
+
+
+authenticationFilter :
+  serverName : http://localhost:8081/sample1
+  casServerLoginUrl : https://cas-instance1:8443/cas/login
+
+
+validationFilter :
+  casServerUrlPrefix : https://cas-instance1:8443/cas

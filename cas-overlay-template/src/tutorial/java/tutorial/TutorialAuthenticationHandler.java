@@ -30,17 +30,8 @@ public class TutorialAuthenticationHandler extends AbstractUsernamePasswordAuthe
   protected HandlerResult authenticateUsernamePasswordInternal(UsernamePasswordCredential credential, String s) throws GeneralSecurityException, PreventedException {
 
     String username = credential.getUsername().toUpperCase();
-    log.info("Test if credentials equals to CASTOI" + username);
 
-    /* if ("CASTOI".equals(credential.getUsername().toUpperCase())) {
-      return createHandlerResult(credential,
-        this.principalFactory.createPrincipal(username), null);
-    }
-    else {
-      throw new FailedLoginException("Sorry, you are a failure!");
-    } */
-
-    if ("HLREBILLAR".equals(credential.getUsername().toUpperCase())) {
+    if ("CASTOI".equals(credential.getUsername().toUpperCase()) && "maisnon!".equals(credential.getPassword())) {
       return createHandlerResult(credential,
         this.principalFactory.createPrincipal(username), null);
     }

@@ -1,10 +1,11 @@
 set JAVA_HOME=D:\jdk1.8.0_65
 set DIST_DIR=D:\entorno\ide\workspace\sso-cas\dist
-set CAS_CONFIG_DIR=%DIST_DIR%\etc\cas\config\instance1
-set KEYSTORE_FILE=%DIST_DIR%\etc\cas\thekeystore-cas-instance1.jks
-set SERVICES_JSON_DIR=%DIST_DIR%\etc\cas\config\services
+set TUTORIAL_DIR=%DIST_DIR%\tutorial
+set CAS_CONFIG_DIR=%TUTORIAL_DIR%\config\instance1
+set KEYSTORE_FILE=%DIST_DIR%\thekeystore-cas-instance1.jks
+set SERVICES_JSON_DIR=%TUTORIAL_DIR%\config\services
 
-del /f /q %DIST_DIR%\logs\instance1\*.*
+del /f /q %TUTORIAL_DIR%\logs\instance1\*.*
 
 echo on
 
