@@ -2,13 +2,14 @@
 export JAVA_HOME=/software/java/jdk1.8.0_92/
 echo "JAVA_HOME=${JAVA_HOME}"
 
+cd ..
 export DIST_DIR=`pwd`
 echo "DIST_DIR=${DIST_DIR}"
 
 export CAS_CONFIG_DIR=${DIST_DIR}/tutorial/config/${1}
 echo "CAS_CONFIG_DIR=${CAS_CONFIG_DIR}"
 
-export SERVICES_JSON_DIR=${DIST_DIR}/tutorial/services
+export SERVICES_JSON_DIR=${DIST_DIR}/tutorial/config/services
 echo "SERVICES_JSON_DIR=${SERVICES_JSON_DIR}"
 
 

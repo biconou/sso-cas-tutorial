@@ -1,5 +1,5 @@
 
-. ./setenv.sh cas
+. ../setenv.sh cas
 
 
 rm ${LOGS_DIR}/*

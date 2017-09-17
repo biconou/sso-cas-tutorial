@@ -1,7 +1,6 @@
-/**
+package com.github.biconou.sso.cas.tutorial; /**
  * Paquet de définition
  **/
-package tutorial;
 
 import java.security.GeneralSecurityException;
 import javax.security.auth.login.FailedLoginException;

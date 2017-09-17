@@ -1,8 +1,0 @@
-{
-  "@class": "org.apereo.cas.services.RegexRegisteredService",
-  "serviceId": "https://hocalhost:9463/sample2/.*",
-  "name": "sample1",
-  "id": 998,
-  "description": "sample1",
-  "evaluationOrder": 10000
-}

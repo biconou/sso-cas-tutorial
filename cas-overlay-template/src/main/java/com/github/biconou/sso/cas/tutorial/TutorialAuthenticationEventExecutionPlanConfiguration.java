@@ -1,4 +1,5 @@
-package tutorial;
+package com.github.biconou.sso.cas.tutorial;
+
 
 import org.apereo.cas.authentication.AuthenticationEventExecutionPlan;
 import org.apereo.cas.authentication.AuthenticationEventExecutionPlanConfigurer;

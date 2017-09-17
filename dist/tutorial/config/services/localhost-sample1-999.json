@@ -1,8 +1,8 @@
 {
   "@class": "org.apereo.cas.services.RegexRegisteredService",
   "serviceId": "http://localhost:8081/sample1/.*",
-  "name": "sample1b",
-  "id": 997,
-  "description": "sample1b",
+  "name": "localhost-sample1",
+  "id": 999,
+  "description": "CAS sample client application on localhost",
   "evaluationOrder": 10000
 }
