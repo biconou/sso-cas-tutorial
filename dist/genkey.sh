@@ -1,11 +1,11 @@
 
 . ./setenv.sh
 
-rm ./etc/cas/thekeystore.jks
+rm ${KEYSTORE_DIR}/thekeystore.jks
 
 ${JAVA_HOME}/bin/keytool -genkeypair \
     -alias localhost \
     -keyalg RSA \
     -dname CN=localhost \
     -validity 365 \
-    -keystore ./etc/cas/thekeystore.jks
+    -keystore ${KEYSTORE_DIR}/thekeystore.jks

@@ -1,8 +1,0 @@
-{
-  "@class": "org.apereo.cas.services.RegexRegisteredService",
-  "serviceId": "http://item-86894.dhcp.lyon.fr.sopra:8080/.*",
-  "name": "ikos",
-  "id": 997,
-  "description": "ikos",
-  "evaluationOrder": 10000
-}

@@ -10,7 +10,6 @@
 
 	<modules>
 		<module>cas-overlay-template</module>
-		<module>cas-sample-java-webapp</module>
 		<module>cas-sample-client-webapp</module>
 	</modules>
 
