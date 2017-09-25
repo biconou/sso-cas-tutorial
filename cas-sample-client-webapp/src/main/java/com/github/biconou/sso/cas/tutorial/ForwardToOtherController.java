@@ -11,21 +11,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Description: Merci de donner une description du service rendu par cette classe
  **/
 @Controller
-public class ForwardToSample2Controller {
+public class ForwardToOtherController {
 
-  @Value("${authenticationFilter.serverName}")
-  private String serverName = null;
+  @Value("${forwardToOtherController.casurl}")
+  private String CASUrl = null;
 
+  @Value("${forwardToOtherController.serviceName}")
+  private String serviceName = null;
 
-  @RequestMapping("/forwardToSample2")
+  @Value("${forwardToOtherController.forwardLocation}")
+  private String forwardLocation = null;
+
+  @RequestMapping("/forwardToOther")
   public String forward() throws Exception {
 
-    String CASUrl = "https://localhost:8443/cas/";
-    String serviceName = "http://localhost:8082/sample2/";
     String TGT = CASUtils.generateTGT(CASUrl, "CASTOI", "maisnon!");
     String ST = CASUtils.obtainServiceTicket(CASUrl, TGT, serviceName);
 
-    String location = "http://localhost:8082/sample2?ticket=" + ST;
+    String location = forwardLocation + "?ticket=" + ST;
     return "redirect:" + location;
   }
 

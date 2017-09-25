@@ -16,3 +16,7 @@ authenticationFilter :
 validationFilter :
   casServerUrlPrefix : https://localhost:8443/cas
 
+forwardToOtherController :
+  casurl : https://localhost:8443/cas/
+  serviceName : http://localhost:8082/sample2/
+  forwardLocation : http://localhost:8082/sample2/
