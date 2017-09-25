@@ -13,5 +13,6 @@ bin/
 *.iml
 *.log
 
-dist/thekeystore*.jks
-dist/cas.war
+thekeystore*.jks
+cas.war
+cas*.jar
